@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Converter | YouTube to Spotify</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="Music.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <i class="fas fa-arrow-right arrow-icon"></i>
+                <i class="fab fa-spotify spotify-icon"></i>
+            </div>
+            <h1>Playlist Converter</h1>
+            <p class="subtitle">Convert your YouTube playlists to Spotify in seconds</p>
+        </header>
+
+        <main>
+            <div class="converter-box">
+                <div class="input-section">
+                    <h2>Enter YouTube Playlist URL</h2>
+                    <div class="input-group">
+                        <input type="text" id="youtube-url" placeholder="https://www.youtube.com/playlist?list=...">
+                        <button id="fetch-btn" class="btn">Fetch Playlist</button>
+                    </div>
+                    <p class="hint">Paste a YouTube playlist link above</p>
+                </div>
+
+                <div class="progress-section hidden">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text">Processing your playlist...</p>
+                    <div class="track-list" id="track-list">
+                        <!-- Tracks will be added here dynamically -->
+                    </div>
+                </div>
+
+                <div class="results-section hidden">
+                    <div class="playlist-preview">
+                        <div class="playlist-cover" id="playlist-cover">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <h3 id="playlist-title">My Converted Playlist</h3>
+                            <p id="track-count">0 tracks</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="login-spotify" class="btn spotify-btn">
+                            <i class="fab fa-spotify"></i> Login to Spotify
+                        </button>
+                        <button id="export-btn" class="btn primary-btn" disabled>
+                            <i class="fas fa-upload"></i> Export to Spotify
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h2>Why Use Our Converter?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Lightning Fast</h3>
+                        <p>Convert playlists in seconds with our optimized algorithm.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Accurate Matches</h3>
+                        <p>Advanced matching ensures your songs are correctly identified.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lock"></i>
+                        <h3>Secure</h3>
+                        <p>We don't store your Spotify credentials or playlist data.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 Playlist Converter. Not affiliated with YouTube or Spotify.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal hidden" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Connect to Spotify</h2>
+            <p>We need your permission to create playlists in your Spotify account.</p>
+            <button id="authenticate-spotify" class="btn spotify-btn">
+                <i class="fab fa-spotify"></i> Authorize with Spotify
+            </button>
+            <p class="small-text">You'll be redirected to Spotify's secure login page.</p>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="success-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Playlist Created Successfully!</h2>
+            <p>Your YouTube playlist has been converted and saved to your Spotify account.</p>
+            <a href="#" id="open-spotify" class="btn spotify-btn">
+                <i class="fab fa-spotify"></i> Open in Spotify
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
